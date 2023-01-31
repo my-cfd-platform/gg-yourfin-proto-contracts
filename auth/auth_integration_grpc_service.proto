@@ -7,16 +7,17 @@ enum OperationResult{
     TraderNotFound = 2;
 }
 
-message GenerateOneTimeAuthenticationTokenGrpcRequest{
+message GeneratePlatformRedirectUrlGrpcRequest{
   string TraderId = 1;
+  optional string AccountId = 2;
 }
 
-message GenerateOneTimeAuthenticationTokenGrpcResponse{
+message GeneratePlatformRedirectUrlGrpcResponse{
   authentication_integration.OperationResult Result = 1;
   string RedirectUrl = 2;
 }
 
 service AuthenticationGrpcService {
-    rpc GenerateOneTimeAuthenicationToken(authentication_integration.GenerateOneTimeAuthenticationTokenGrpcRequest) returns (authentication_integration.GenerateOneTimeAuthenticationTokenGrpcResponse);
+    rpc GeneratePlatformRedirectUrl(authentication_integration.GeneratePlatformRedirectUrlGrpcRequest) returns (authentication_integration.GeneratePlatformRedirectUrlGrpcResponse);
 }
 

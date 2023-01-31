@@ -14,7 +14,7 @@ enum UpdateAccountBalanceReason{
 }
 
 message ClientAccountGrpcModel{
-    string ClientId = 1;
+    string TraderId = 1;
     string AccountId = 2;
     string Currency = 3;
     double Balance = 4;
@@ -26,7 +26,7 @@ message ClientAccountGrpcModel{
 
 message UpdateAccountBalanceGrpcRequest{
    accounts_integration.UpdateAccountBalanceReason Reason = 1;
-    string ClientId = 2;
+    string TraderId = 2;
     string AccountId = 3;
     double Delta = 4;
     string Comment = 5;
@@ -39,16 +39,16 @@ message AccountGrpcResponse{
 }
 
 message CreateClientAccountGrpcRequest{
-    string ClientId = 1;
+    string TraderId = 1;
     string Currency = 2;
 }
 
 message GetClientAccountsGrpcRequest{
-    string ClientId = 1;
+    string TraderId = 1;
 }
 
 message UpdateAccountTradingDisabledGrpcRequest{
-    string ClientId = 1;
+    string TraderId = 1;
     string AccountId = 2;
     bool TradingDisabled = 3;
 }
