@@ -1,0 +1,32 @@
+syntax = "proto3";
+package trading_info_integration;
+
+message ProtoULongNullValue{
+    uint64 Value = 1;
+}
+
+message GetClientInfoGrpcRequest{
+    string TraderId = 1;
+    optional string AccountId = 2;
+    optional ProtoULongNullValue DateFrom = 3;
+    optional ProtoULongNullValue DateTo = 4;
+}
+
+message ActiveOrderGrpcModel{
+
+}
+
+message PendingOrderGrpcModel{
+    
+}
+
+message ClosedOrderGrpcModel{
+    
+}
+
+service TradingInformationGrpcService {
+    rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
+    rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
+    rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);
+}
+

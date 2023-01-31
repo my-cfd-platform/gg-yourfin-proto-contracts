@@ -1,0 +1,22 @@
+syntax = "proto3";
+package authentication_integration;
+
+enum OperationResult{
+    Ok = 0;
+    AccountNotFound = 1;
+    TraderNotFound = 2;
+}
+
+message GenerateOneTimeAuthenticationTokenGrpcRequest{
+  string TraderId = 1;
+}
+
+message GenerateOneTimeAuthenticationTokenGrpcResponse{
+  authentication_integration.OperationResult Result = 1;
+  string RedirectUrl = 2;
+}
+
+service AuthenticationGrpcService {
+    rpc GenerateOneTimeAuthenicationToken(authentication_integration.GenerateOneTimeAuthenticationTokenGrpcRequest) returns (authentication_integration.GenerateOneTimeAuthenticationTokenGrpcResponse);
+}
+

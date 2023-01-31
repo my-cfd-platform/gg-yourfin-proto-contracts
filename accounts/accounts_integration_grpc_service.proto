@@ -1,0 +1,61 @@
+syntax = "proto3";
+package accounts_integration;
+
+enum OperationResult{
+    Ok = 0;
+    AccountNotFound = 1;
+    TraderNotFound = 2;
+}
+
+enum UpdateAccountBalanceReason{
+    BalanceCorrection = 0;
+    Deposit = 1;
+    Withdrawal = 2;
+}
+
+message ClientAccountGrpcModel{
+    string ClientId = 1;
+    string AccountId = 2;
+    string Currency = 3;
+    double Balance = 4;
+    string TradingGroupId = 5;
+    uint64 CreatedAt = 6;
+    uint64 UpdatedAt = 7;
+    bool TradingDisabled = 8;
+}
+
+message UpdateAccountBalanceGrpcRequest{
+   accounts_integration.UpdateAccountBalanceReason Reason = 1;
+    string ClientId = 2;
+    string AccountId = 3;
+    double Delta = 4;
+    string Comment = 5;
+ 
+}
+
+message AccountGrpcResponse{
+    accounts_integration.OperationResult Result = 1;
+    accounts_integration.ClientAccountGrpcModel Account = 2;
+}
+
+message CreateClientAccountGrpcRequest{
+    string ClientId = 1;
+    string Currency = 2;
+}
+
+message GetClientAccountsGrpcRequest{
+    string ClientId = 1;
+}
+
+message UpdateAccountTradingDisabledGrpcRequest{
+    string ClientId = 1;
+    string AccountId = 2;
+    bool TradingDisabled = 3;
+}
+
+service AccountsIntegrationGrpcService {
+    rpc CreateClientAccount(accounts_integration.CreateClientAccountGrpcRequest) returns (accounts_integration.AccountGrpcResponse);
+    rpc UpdateClientAccountBalance(accounts_integration.UpdateAccountBalanceGrpcRequest) returns (accounts_integration.AccountGrpcResponse);
+    rpc GetClientAccounts(accounts_integration.GetClientAccountsGrpcRequest) returns (stream accounts_integration.ClientAccountGrpcModel);
+    rpc UpdateAccountTradingDisabled(accounts_integration.UpdateAccountTradingDisabledGrpcRequest) returns (accounts_integration.AccountGrpcResponse);
+}
