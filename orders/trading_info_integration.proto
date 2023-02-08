@@ -1,6 +1,20 @@
 syntax = "proto3";
 package trading_info_integration;
 
+enum PositionSide{
+    Buy = 0;
+    Sell = 1;
+}
+
+enum PositionCloseReason{
+    None = 0;
+    ClientCommand = 1;
+    StopOut = 2;
+    TakeProfit = 3;
+    StopLoss = 4;
+    Canceled = 5;
+}
+
 message ProtoULongNullValue{
     uint64 Value = 1;
 }
@@ -12,16 +26,84 @@ message GetClientInfoGrpcRequest{
     optional ProtoULongNullValue DateTo = 4;
 }
 
-message ActiveOrderGrpcModel{
+message TradingInfoBidAskModel{
+    string Id = 1;
+    string Bid = 2;
+    string Ask = 3;
+    string DateTime = 4;
+}
 
+message ActiveOrderGrpcModel{
+    string Id = 1;
+    string TraderId = 2;
+    string WalletId = 3;
+    string InstrumentId = 4;
+    double InvestAmount = 5;
+    double Leverage = 6;
+    uint64 CreateDate = 7;
+    trading_info_integration.PositionSide PositionSide = 8;
+    optional double TpInPositionPl = 9;
+    optional double TpInAssetPrice = 10;
+    optional double TlInPositionPl = 11;
+    optional double SlInAssetPrice = 12;
+    uint64 LastUpdateDate = 13;
+    string CreateProcessId = 14;
+    double Volume = 15;
+    double Profit = 16;
+    double SoPercent = 17;
+    optional double DesirePrice = 18;
+    double OpenPrice = 19;
+    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    uint64 OpenDate = 21;
 }
 
 message PendingOrderGrpcModel{
-    
+    string Id = 1;
+    string TraderId = 2;
+    string WalletId = 3;
+    string InstrumentId = 4;
+    double InvestAmount = 5;
+    double Leverage = 6;
+    uint64 CreateDate = 7;
+    trading_info_integration.PositionSide PositionSide = 8;
+    optional double TpInPositionPl = 9;
+    optional double TpInAssetPrice = 10;
+    optional double TlInPositionPl = 11;
+    optional double SlInAssetPrice = 12;
+    uint64 LastUpdateDate = 13;
+    string CreateProcessId = 14;
+    double Volume = 15;
+    double Profit = 16;
+    double SoPercent = 17;
+    optional double DesirePrice = 18;
 }
 
 message ClosedOrderGrpcModel{
-    
+    string Id = 1;
+    string TraderId = 2;
+    string WalletId = 3;
+    string InstrumentId = 4;
+    double InvestAmount = 5;
+    double Leverage = 6;
+    uint64 CreateDate = 7;
+    trading_info_integration.PositionSide PositionSide = 8;
+    optional double TpInPositionPl = 9;
+    optional double TpInAssetPrice = 10;
+    optional double TlInPositionPl = 11;
+    optional double SlInAssetPrice = 12;
+    uint64 LastUpdateDate = 13;
+    string CreateProcessId = 14;
+    double Volume = 15;
+    double Profit = 16;
+    double SoPercent = 17;
+    optional double DesirePrice = 18;
+    double OpenPrice = 19;
+    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    uint64 OpenDate = 21;
+    trading_info_integration.TradingInfoBidAskModel CloseBidAsk = 22;
+    double ClosePrice = 23;
+    uint64 CloseDate = 24;
+    trading_info_integration.PositionCloseReason CloseReason = 25;
 }
 
 service TradingInformationGrpcService {
@@ -29,4 +111,3 @@ service TradingInformationGrpcService {
     rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
     rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);
 }
-
