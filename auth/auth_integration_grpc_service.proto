@@ -1,5 +1,7 @@
 syntax = "proto3";
 package authentication_integration;
+import "google/protobuf/empty.proto";
+
 
 enum OperationResult{
     Ok = 0;
@@ -17,7 +19,12 @@ message GeneratePlatformRedirectUrlGrpcResponse{
   string RedirectUrl = 2;
 }
 
+message PingResponse{
+  string ServiceName = 1;
+}
+
 service AuthenticationGrpcService {
-    rpc GeneratePlatformRedirectUrl(authentication_integration.GeneratePlatformRedirectUrlGrpcRequest) returns (authentication_integration.GeneratePlatformRedirectUrlGrpcResponse);
+    rpc GeneratePlatformRedirectUrl(authentication_integration.GeneratePlatformRedirectUrlGrpcRequest) returns (authentication_integration.GeneratePlatformRedirectUrlGrpcResponse);   
+    rpc Ping(google.protobuf.Empty) returns(authentication_integration.PingResponse);
 }
 
