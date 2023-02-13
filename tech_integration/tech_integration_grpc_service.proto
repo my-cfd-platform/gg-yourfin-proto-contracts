@@ -1,0 +1,12 @@
+syntax = "proto3";
+package tech_integration;
+import "google/protobuf/empty.proto";
+
+message PingGrpcResponse{
+    bool IsAlive = 1;
+    uint64 DateTime = 2;
+}
+
+service TechIntegrationGrpc {
+    rpc Ping(google.protobuf.Empty) returns (tech_integration.PingGrpcResponse);
+}

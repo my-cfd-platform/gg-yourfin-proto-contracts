@@ -32,7 +32,6 @@ message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
     string Comment = 4;
     string ProcessId = 5;
     bool AllowNegativeBalance = 6;
- 
 }
 
 message AccountsIntegrationAccountGrpcResponse{

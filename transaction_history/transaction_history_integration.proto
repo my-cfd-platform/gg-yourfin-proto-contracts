@@ -1,0 +1,31 @@
+syntax = "proto3";
+package transaction_history_integration;
+
+
+enum TransactionType{
+    Deposit = 0;
+    Withdrawal = 1;
+    BalanceCorrenction = 2;
+    Trading = 3;
+}
+
+message TransactionGrpcModel{
+    string Id = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    transaction_history_integration.TransactionType TransactionType = 4;
+    uint64 DateTime = 5;
+    double BalanceDelta = 6;
+}
+
+message GetTransactionHistoryGrpc{
+    string TraderId = 1;
+    string AccountId = 2;
+    optional string DateFrom = 3;
+    optional string DateTo = 4;
+    optional transaction_history_integration.TransactionType OperationType = 5;
+}
+
+service TransactionHistoryIntegrationGrpc {
+    rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
+}

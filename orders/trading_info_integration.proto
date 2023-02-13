@@ -36,7 +36,7 @@ message TradingInfoBidAskModel{
 message ActiveOrderGrpcModel{
     string Id = 1;
     string TraderId = 2;
-    string WalletId = 3;
+    string AccountId = 3;
     string InstrumentId = 4;
     double InvestAmount = 5;
     double Leverage = 6;
@@ -60,7 +60,7 @@ message ActiveOrderGrpcModel{
 message PendingOrderGrpcModel{
     string Id = 1;
     string TraderId = 2;
-    string WalletId = 3;
+    string AccountId = 3;
     string InstrumentId = 4;
     double InvestAmount = 5;
     double Leverage = 6;
@@ -81,7 +81,7 @@ message PendingOrderGrpcModel{
 message ClosedOrderGrpcModel{
     string Id = 1;
     string TraderId = 2;
-    string WalletId = 3;
+    string AccountId = 3;
     string InstrumentId = 4;
     double InvestAmount = 5;
     double Leverage = 6;
