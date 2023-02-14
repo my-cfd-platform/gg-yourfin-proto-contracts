@@ -31,7 +31,7 @@ message PingResponse{
     uint64 DateTime = 2;
   }
 
-service TransactionHistoryIntegrationGrpc {
+service TransactionHistoryIntegrationGrpcService {
     rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(transaction_history_integration.PingResponse);
 }

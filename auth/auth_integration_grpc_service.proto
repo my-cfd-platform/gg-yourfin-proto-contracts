@@ -2,7 +2,6 @@ syntax = "proto3";
 package authentication_integration;
 import "google/protobuf/empty.proto";
 
-
 enum OperationResult{
     Ok = 0;
     AccountNotFound = 1;
