@@ -21,6 +21,7 @@ message GeneratePlatformRedirectUrlGrpcResponse{
 
 message PingResponse{
   string ServiceName = 1;
+  uint64 DateTime = 2;
 }
 
 service AuthenticationGrpcService {

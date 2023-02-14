@@ -48,9 +48,14 @@ message TradingInstumentDayOffGrpcModel{
     string DayTo = 3;
     string TimeTo = 4;
 }
+message PingResponse{
+    string ServiceName = 1;
+    uint64 DateTime = 2;
+  }
 
 service TransactionHistoryIntegrationGrpc {
     rpc GetTradingInstuments(google.protobuf.Empty) returns (stream trading_info_integration.TradingInstrumentGrpcModel);
     rpc GetTradingProfiles(google.protobuf.Empty) returns (stream trading_info_integration.TradingProfileGrpcModel);
     rpc GetTradingGroups(google.protobuf.Empty) returns (stream trading_info_integration.TradingGroupGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns(trading_info_integration.PingResponse);
 }

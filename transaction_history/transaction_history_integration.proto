@@ -1,6 +1,6 @@
 syntax = "proto3";
 package transaction_history_integration;
-
+import "google/protobuf/empty.proto";
 
 enum TransactionType{
     Deposit = 0;
@@ -26,6 +26,12 @@ message GetTransactionHistoryGrpc{
     optional transaction_history_integration.TransactionType OperationType = 5;
 }
 
+message PingResponse{
+    string ServiceName = 1;
+    uint64 DateTime = 2;
+  }
+
 service TransactionHistoryIntegrationGrpc {
     rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns(transaction_history_integration.PingResponse);
 }

@@ -1,5 +1,6 @@
 syntax = "proto3";
 package accounts_integration;
+import "google/protobuf/empty.proto";
 
 enum AccountsIntegrationOperationResult{
     Ok = 0;
@@ -56,9 +57,15 @@ message AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest{
     string ProcessId = 4;
 }
 
+message PingResponse{
+    string ServiceName = 1;
+    uint64 DateTime = 2;
+  }
+
 service AccountsIntegrationGrpcService {
     rpc CreateClientAccount(accounts_integration.AccountsIntegrationCreateClientAccountGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
     rpc UpdateClientAccountBalance(accounts_integration.AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
     rpc GetClientAccounts(accounts_integration.AccountsIntegrationGetClientAccountsGrpcRequest) returns (stream accounts_integration.AccountsIntegrationClientAccountGrpcModel);
     rpc UpdateAccountTradingDisabled(accounts_integration.AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns(accounts_integration.PingResponse);
 }

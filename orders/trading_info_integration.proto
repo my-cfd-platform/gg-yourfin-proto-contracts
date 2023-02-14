@@ -1,5 +1,6 @@
 syntax = "proto3";
 package trading_info_integration;
+import "google/protobuf/empty.proto";
 
 enum PositionSide{
     Buy = 0;
@@ -106,8 +107,14 @@ message ClosedOrderGrpcModel{
     trading_info_integration.PositionCloseReason CloseReason = 25;
 }
 
+message PingResponse{
+  string ServiceName = 1;
+  uint64 DateTime = 2;
+}
+
 service TradingInformationGrpcService {
     rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
     rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
     rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns(trading_info_integration.PingResponse);
 }
