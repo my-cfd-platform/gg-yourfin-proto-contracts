@@ -1,5 +1,5 @@
 syntax = "proto3";
-package account_info_integration;
+package trading_info_integration;
 import "google/protobuf/empty.proto";
 
 enum PositionSide{
@@ -42,7 +42,7 @@ message ActiveOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    account_info_integration.PositionSide PositionSide = 8;
+    trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double TlInPositionPl = 11;
@@ -54,7 +54,7 @@ message ActiveOrderGrpcModel{
     double SoPercent = 17;
     optional double DesirePrice = 18;
     double OpenPrice = 19;
-    account_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
     uint64 OpenDate = 21;
 }
 
@@ -66,7 +66,7 @@ message PendingOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    account_info_integration.PositionSide PositionSide = 8;
+    trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double TlInPositionPl = 11;
@@ -87,7 +87,7 @@ message ClosedOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    account_info_integration.PositionSide PositionSide = 8;
+    trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double TlInPositionPl = 11;
@@ -99,12 +99,12 @@ message ClosedOrderGrpcModel{
     double SoPercent = 17;
     optional double DesirePrice = 18;
     double OpenPrice = 19;
-    account_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
     uint64 OpenDate = 21;
-    account_info_integration.TradingInfoBidAskModel CloseBidAsk = 22;
+    trading_info_integration.TradingInfoBidAskModel CloseBidAsk = 22;
     double ClosePrice = 23;
     uint64 CloseDate = 24;
-    account_info_integration.PositionCloseReason CloseReason = 25;
+    trading_info_integration.PositionCloseReason CloseReason = 25;
 }
 
 message PingResponse{
@@ -113,8 +113,8 @@ message PingResponse{
 }
 
 service AccountInformationGrpcService {
-    rpc GetActiveOrders(account_info_integration.GetClientInfoGrpcRequest) returns (stream account_info_integration.ActiveOrderGrpcModel);
-    rpc GetPendingOrders(account_info_integration.GetClientInfoGrpcRequest) returns (stream account_info_integration.PendingOrderGrpcModel);
-    rpc GetHistoryPositions(account_info_integration.GetClientInfoGrpcRequest) returns (stream account_info_integration.ClosedOrderGrpcModel);
-    rpc Ping(google.protobuf.Empty) returns(account_info_integration.PingResponse);
+    rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
+    rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
+    rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns(trading_info_integration.PingResponse);
 }
