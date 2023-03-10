@@ -43,11 +43,12 @@ message TradingInstrumentGrpcModel{
 }
 
 message TradingInstumentDayOffGrpcModel{
-    string DayFrom = 1;
+    uint32 DayFrom = 1;
     string TimeFrom = 2;
-    string DayTo = 3;
+    uint32 DayTo = 3;
     string TimeTo = 4;
 }
+
 message PingResponse{
     string ServiceName = 1;
     uint64 DateTime = 2;
