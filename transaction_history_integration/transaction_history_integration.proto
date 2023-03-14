@@ -5,7 +5,7 @@ import "google/protobuf/empty.proto";
 enum TransactionType{
     Deposit = 0;
     Withdrawal = 1;
-    BalanceCorrenction = 2;
+    BalanceCorrection = 2;
     Trading = 3;
 }
 
