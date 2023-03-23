@@ -112,7 +112,7 @@ message PingResponse{
   uint64 DateTime = 2;
 }
 
-service AccountInformationGrpcService {
+service TradingInfoIntegrationGrpcService {
     rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
     rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
     rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);

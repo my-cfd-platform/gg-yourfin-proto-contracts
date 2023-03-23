@@ -39,10 +39,10 @@ message TradingInstrumentGrpcModel{
     string Quote = 5;
     double TickSize = 6;
     bool TradingDisabled = 7;
-    repeated trading_settings_integration.TradingInstumentDayOffGrpcModel TradingInstrumentDayOffs = 8;
+    repeated trading_settings_integration.TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 8;
 }
 
-message TradingInstumentDayOffGrpcModel{
+message TradingInstrumentDayOffGrpcModel{
     uint32 DayFrom = 1;
     string TimeFrom = 2;
     uint32 DayTo = 3;
@@ -55,7 +55,7 @@ message PingResponse{
   }
 
 service TradingSettingsIntegrationGrpcService {
-    rpc GetTradingInstuments(google.protobuf.Empty) returns (stream trading_settings_integration.TradingInstrumentGrpcModel);
+    rpc GetTradingInstruments(google.protobuf.Empty) returns (stream trading_settings_integration.TradingInstrumentGrpcModel);
     rpc GetTradingProfiles(google.protobuf.Empty) returns (stream trading_settings_integration.TradingProfileGrpcModel);
     rpc GetTradingGroups(google.protobuf.Empty) returns (stream trading_settings_integration.TradingGroupGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(trading_settings_integration.PingResponse);
