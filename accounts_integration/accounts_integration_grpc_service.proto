@@ -33,10 +33,21 @@ message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
     string Comment = 4;
     string ProcessId = 5;
     bool AllowNegativeBalance = 6;
+    accounts_integration.AccountsIntegrationUpdateAccountBalanceReason Reason = 7;
 }
 
 message AccountsIntegrationAccountGrpcResponse{
     accounts_integration.AccountsIntegrationOperationResult Result = 1;
+    accounts_integration.AccountsIntegrationClientAccountGrpcModel Account = 2;
+}
+
+message AccountsIntegrationAccountUpdateBalanceGrpcResponse{
+    accounts_integration.AccountsIntegrationOperationResult Result = 1;
+    accounts_integration.AccountsIntegrationAccountBalanceUpdateInfoGrpc UpdateBalanceInfo = 2;
+}
+
+message AccountsIntegrationAccountBalanceUpdateInfoGrpc{
+    string OperationId = 1;
     accounts_integration.AccountsIntegrationClientAccountGrpcModel Account = 2;
 }
 
@@ -65,7 +76,7 @@ message PingResponse{
 
 service AccountsIntegrationGrpcService {
     rpc CreateClientAccount(accounts_integration.AccountsIntegrationCreateClientAccountGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
-    rpc UpdateClientAccountBalance(accounts_integration.AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
+    rpc UpdateClientAccountBalance(accounts_integration.AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountUpdateBalanceGrpcResponse);
     rpc GetClientAccounts(accounts_integration.AccountsIntegrationGetClientAccountsGrpcRequest) returns (stream accounts_integration.AccountsIntegrationClientAccountGrpcModel);
     rpc UpdateAccountTradingDisabled(accounts_integration.AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns(accounts_integration.PingResponse);

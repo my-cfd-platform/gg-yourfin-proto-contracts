@@ -5,7 +5,7 @@ import "google/protobuf/empty.proto";
 enum TransactionType{
     Deposit = 0;
     Withdrawal = 1;
-    BalanceCorrenction = 2;
+    BalanceCorrection = 2;
     Trading = 3;
 }
 
@@ -21,8 +21,8 @@ message TransactionGrpcModel{
 message GetTransactionHistoryGrpc{
     string TraderId = 1;
     string AccountId = 2;
-    optional string DateFrom = 3;
-    optional string DateTo = 4;
+    optional uint64 DateFromUnixMs = 3;
+    optional uint64 DateToUnixMs = 4;
     optional transaction_history_integration.TransactionType OperationType = 5;
 }
 
