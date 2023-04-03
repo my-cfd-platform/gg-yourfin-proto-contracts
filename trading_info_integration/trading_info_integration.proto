@@ -14,6 +14,7 @@ enum PositionCloseReason{
     TakeProfit = 3;
     StopLoss = 4;
     Canceled = 5;
+    ForceClose = 6;
 }
 
 message ProtoULongNullValue{
@@ -22,16 +23,16 @@ message ProtoULongNullValue{
 
 message GetClientInfoGrpcRequest{
     string TraderId = 1;
-    optional string AccountId = 2;
+    string AccountId = 2;
     optional ProtoULongNullValue DateFrom = 3;
     optional ProtoULongNullValue DateTo = 4;
 }
 
 message TradingInfoBidAskModel{
     string Id = 1;
-    string Bid = 2;
-    string Ask = 3;
-    string DateTime = 4;
+    double Bid = 2;
+    double Ask = 3;
+    uint64 DateTime = 4;
 }
 
 message ActiveOrderGrpcModel{
@@ -45,7 +46,7 @@ message ActiveOrderGrpcModel{
     trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
-    optional double TlInPositionPl = 11;
+    optional double SlInPositionPl = 11;
     optional double SlInAssetPrice = 12;
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
@@ -69,7 +70,7 @@ message PendingOrderGrpcModel{
     trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
-    optional double TlInPositionPl = 11;
+    optional double SlInPositionPl = 11;
     optional double SlInAssetPrice = 12;
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
@@ -90,7 +91,7 @@ message ClosedOrderGrpcModel{
     trading_info_integration.PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
-    optional double TlInPositionPl = 11;
+    optional double SlInPositionPl = 11;
     optional double SlInAssetPrice = 12;
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
@@ -112,7 +113,7 @@ message PingResponse{
   uint64 DateTime = 2;
 }
 
-service TradingInfoIntegrationGrpcService {
+service TradingInfoIntegrationGrpc {
     rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
     rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
     rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);

@@ -29,7 +29,7 @@ message GetTransactionHistoryGrpc{
 message PingResponse{
     string ServiceName = 1;
     uint64 DateTime = 2;
-  }
+}
 
 service TransactionHistoryIntegrationGrpcService {
     rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
