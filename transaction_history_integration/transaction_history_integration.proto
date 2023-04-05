@@ -14,8 +14,11 @@ message TransactionGrpcModel{
     string TraderId = 2;
     string AccountId = 3;
     transaction_history_integration.TransactionType TransactionType = 4;
-    uint64 DateTime = 5;
+    optional string ProcessId = 5;
     double BalanceDelta = 6;
+    uint64 Date = 7;
+    optional string ReferenceTransactionId = 8;
+    double BalanceAfterOperation = 9;
 }
 
 message GetTransactionHistoryGrpc{
@@ -23,13 +26,12 @@ message GetTransactionHistoryGrpc{
     string AccountId = 2;
     optional uint64 DateFromUnixMs = 3;
     optional uint64 DateToUnixMs = 4;
-    optional transaction_history_integration.TransactionType OperationType = 5;
 }
 
 message PingResponse{
     string ServiceName = 1;
     uint64 DateTime = 2;
-}
+  }
 
 service TransactionHistoryIntegrationGrpcService {
     rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
