@@ -48,10 +48,6 @@ message TradingInstrumentDayOffGrpcModel{
     uint32 DayTo = 3;
     string TimeTo = 4;
 }
-message PingResponse{
-    string ServiceName = 1;
-    uint64 DateTime = 2;
-  }
 
 service TradingSettingsIntegrationGrpcService {
     rpc GetTradingInstruments(google.protobuf.Empty) returns (stream trading_settings_integration.TradingInstrumentGrpcModel);
