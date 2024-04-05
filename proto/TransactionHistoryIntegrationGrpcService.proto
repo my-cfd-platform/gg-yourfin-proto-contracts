@@ -14,16 +14,18 @@ message TransactionGrpcModel{
     string TraderId = 2;
     string AccountId = 3;
     transaction_history_integration.TransactionType TransactionType = 4;
-    uint64 DateTime = 5;
+    optional string ProcessId = 5;
     double BalanceDelta = 6;
+    uint64 Date = 7;
+    optional string ReferenceTransactionId = 8;
+    double BalanceAfterOperation = 9;
 }
 
 message GetTransactionHistoryGrpc{
     string TraderId = 1;
     string AccountId = 2;
-    optional string DateFrom = 3;
-    optional string DateTo = 4;
-    optional transaction_history_integration.TransactionType OperationType = 5;
+    optional uint64 DateFromUnixMs = 3;
+    optional uint64 DateToUnixMs = 4;
 }
 
 message PingResponse{

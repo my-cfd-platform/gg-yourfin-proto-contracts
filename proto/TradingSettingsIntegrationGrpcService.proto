@@ -48,7 +48,6 @@ message TradingInstrumentDayOffGrpcModel{
     uint32 DayTo = 3;
     string TimeTo = 4;
 }
-
 message PingResponse{
     string ServiceName = 1;
     uint64 DateTime = 2;
