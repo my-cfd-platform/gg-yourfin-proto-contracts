@@ -8,6 +8,7 @@ enum AccountsIntegrationOperationResult{
     TraderNotFound = 2;
     NotEnoughBalance = 3;
     ProcessIdDuplicate = 4;
+    InvalidTradingGroup = 5;
 }
 
 enum AccountsIntegrationUpdateAccountBalanceReason{
@@ -39,8 +40,8 @@ message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
 }
 
 message AccountsIntegrationAccountGrpcResponse{
-    accounts_integration.AccountsIntegrationOperationResult Result = 1;
-    accounts_integration.AccountsIntegrationClientAccountGrpcModel Account = 2;
+    AccountsIntegrationOperationResult Result = 1;
+    AccountsIntegrationClientAccountGrpcModel Account = 2;
 }
 
 message AccountsIntegrationAccountUpdateBalanceGrpcResponse{
