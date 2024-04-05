@@ -35,6 +35,7 @@ message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
     string ProcessId = 5;
     bool AllowNegativeBalance = 6;
     accounts_integration.AccountsIntegrationUpdateAccountBalanceReason Reason = 7;
+    optional string ReferenceTransactionId = 8;
 }
 
 message AccountsIntegrationAccountGrpcResponse{
