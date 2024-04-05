@@ -57,5 +57,5 @@ service TradingSettingsIntegrationGrpcService {
     rpc GetTradingInstruments(google.protobuf.Empty) returns (stream trading_settings_integration.TradingInstrumentGrpcModel);
     rpc GetTradingProfiles(google.protobuf.Empty) returns (stream trading_settings_integration.TradingProfileGrpcModel);
     rpc GetTradingGroups(google.protobuf.Empty) returns (stream trading_settings_integration.TradingGroupGrpcModel);
-    rpc Ping(google.protobuf.Empty) returns(trading_settings_integration.PingResponse);
+    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }

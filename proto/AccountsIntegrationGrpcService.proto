@@ -79,5 +79,5 @@ service AccountsIntegrationGrpcService {
     rpc UpdateClientAccountBalance(accounts_integration.AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountUpdateBalanceGrpcResponse);
     rpc GetClientAccounts(accounts_integration.AccountsIntegrationGetClientAccountsGrpcRequest) returns (stream accounts_integration.AccountsIntegrationClientAccountGrpcModel);
     rpc UpdateAccountTradingDisabled(accounts_integration.AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest) returns (accounts_integration.AccountsIntegrationAccountGrpcResponse);
-    rpc Ping(google.protobuf.Empty) returns(accounts_integration.PingResponse);
+    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }

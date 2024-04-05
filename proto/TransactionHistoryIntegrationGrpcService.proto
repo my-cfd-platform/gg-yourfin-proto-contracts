@@ -28,12 +28,7 @@ message GetTransactionHistoryGrpc{
     optional uint64 DateToUnixMs = 4;
 }
 
-message PingResponse{
-    string ServiceName = 1;
-    uint64 DateTime = 2;
-  }
-
 service TransactionHistoryIntegrationGrpcService {
     rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
-    rpc Ping(google.protobuf.Empty) returns(transaction_history_integration.PingResponse);
+    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
