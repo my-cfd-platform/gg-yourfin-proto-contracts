@@ -9,6 +9,7 @@ enum AccountsIntegrationOperationResult{
     NotEnoughBalance = 3;
     ProcessIdDuplicate = 4;
     InvalidTradingGroup = 5;
+    InvalidAccountCurrency = 6;
 }
 
 enum AccountsIntegrationUpdateAccountBalanceReason{
