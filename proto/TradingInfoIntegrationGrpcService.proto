@@ -54,9 +54,9 @@ message ActiveOrderGrpcModel{
     double Profit = 16;
     double SoPercent = 17;
     optional double DesirePrice = 18;
-    double OpenPrice = 19;
+    optional double OpenPrice = 19;
     TradingInfoBidAskModel OpenBidAsk = 20;
-    uint64 OpenDate = 21;
+    optional uint64 OpenDate = 21;
 }
 
 message PendingOrderGrpcModel{
