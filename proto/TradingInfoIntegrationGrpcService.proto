@@ -43,7 +43,7 @@ message ActiveOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    trading_info_integration.PositionSide PositionSide = 8;
+    PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double SlInPositionPl = 11;
@@ -55,7 +55,7 @@ message ActiveOrderGrpcModel{
     double SoPercent = 17;
     optional double DesirePrice = 18;
     double OpenPrice = 19;
-    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    TradingInfoBidAskModel OpenBidAsk = 20;
     uint64 OpenDate = 21;
 }
 
@@ -67,7 +67,7 @@ message PendingOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    trading_info_integration.PositionSide PositionSide = 8;
+    PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double SlInPositionPl = 11;
@@ -88,7 +88,7 @@ message ClosedOrderGrpcModel{
     double InvestAmount = 5;
     double Leverage = 6;
     uint64 CreateDate = 7;
-    trading_info_integration.PositionSide PositionSide = 8;
+    PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
     optional double TpInAssetPrice = 10;
     optional double SlInPositionPl = 11;
@@ -100,18 +100,18 @@ message ClosedOrderGrpcModel{
     double SoPercent = 17;
     optional double DesirePrice = 18;
     double OpenPrice = 19;
-    trading_info_integration.TradingInfoBidAskModel OpenBidAsk = 20;
+    TradingInfoBidAskModel OpenBidAsk = 20;
     uint64 OpenDate = 21;
-    trading_info_integration.TradingInfoBidAskModel CloseBidAsk = 22;
+    TradingInfoBidAskModel CloseBidAsk = 22;
     double ClosePrice = 23;
     uint64 CloseDate = 24;
-    trading_info_integration.PositionCloseReason CloseReason = 25;
+    PositionCloseReason CloseReason = 25;
 }
 
 
 service TradingInfoIntegrationGrpc {
-    rpc GetActiveOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ActiveOrderGrpcModel);
-    rpc GetPendingOrders(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.PendingOrderGrpcModel);
-    rpc GetHistoryPositions(trading_info_integration.GetClientInfoGrpcRequest) returns (stream trading_info_integration.ClosedOrderGrpcModel);
+    rpc GetActiveOrders(GetClientInfoGrpcRequest) returns (stream ActiveOrderGrpcModel);
+    rpc GetPendingOrders(GetClientInfoGrpcRequest) returns (stream PendingOrderGrpcModel);
+    rpc GetHistoryPositions(GetClientInfoGrpcRequest) returns (stream ClosedOrderGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
