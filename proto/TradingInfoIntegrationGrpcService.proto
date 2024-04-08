@@ -17,15 +17,12 @@ enum PositionCloseReason{
     ForceClose = 6;
 }
 
-message ProtoULongNullValue{
-    uint64 Value = 1;
-}
 
 message GetClientInfoGrpcRequest{
     string TraderId = 1;
     string AccountId = 2;
-    optional ProtoULongNullValue DateFrom = 3;
-    optional ProtoULongNullValue DateTo = 4;
+    uint64 DateFromMicroSeconds = 3;
+    uint64 DateToMicroSeconds = 4;
 }
 
 message TradingInfoBidAskModel{
