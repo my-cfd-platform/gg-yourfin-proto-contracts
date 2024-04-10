@@ -11,14 +11,12 @@ enum TransactionType{
 
 message TransactionGrpcModel{
     string Id = 1;
-    string TraderId = 2;
-    string AccountId = 3;
-    TransactionType TransactionType = 4;
-    optional string ProcessId = 5;
-    double BalanceDelta = 6;
-    uint64 Date = 7;
-    optional string ReferenceTransactionId = 8;
-    double BalanceAfterOperation = 9;
+    TransactionType TransactionType = 2;
+    optional string ProcessId = 3;
+    double BalanceDelta = 4;
+    uint64 Date = 5;
+    optional string ReferenceTransactionId = 6;
+    double BalanceAfterOperation = 7;
 }
 
 message GetTransactionHistoryGrpc{
