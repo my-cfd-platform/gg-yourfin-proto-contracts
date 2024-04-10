@@ -13,7 +13,7 @@ message TransactionGrpcModel{
     string Id = 1;
     string TraderId = 2;
     string AccountId = 3;
-    transaction_history_integration.TransactionType TransactionType = 4;
+    TransactionType TransactionType = 4;
     optional string ProcessId = 5;
     double BalanceDelta = 6;
     uint64 Date = 7;
@@ -29,6 +29,6 @@ message GetTransactionHistoryGrpc{
 }
 
 service TransactionHistoryIntegrationGrpcService {
-    rpc GetTransactionHistory(transaction_history_integration.GetTransactionHistoryGrpc) returns (stream transaction_history_integration.TransactionGrpcModel);
+    rpc GetTransactionHistory(GetTransactionHistoryGrpc) returns (stream TransactionGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }

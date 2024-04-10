@@ -13,7 +13,7 @@ message TradingProfileGrpcModel{
     string Id = 1;
     double MarginCallPercent = 2;
     double StopOutPercent = 3;
-    repeated trading_settings_integration.TradingProfileInstrumentGrpcModel TradingProfileInstruments = 4;
+    repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 4;
 }
 
 message TradingProfileInstrumentGrpcModel{
@@ -39,7 +39,7 @@ message TradingInstrumentGrpcModel{
     string Quote = 5;
     double TickSize = 6;
     bool TradingDisabled = 7;
-    repeated trading_settings_integration.TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 8;
+    repeated TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 8;
 }
 
 message TradingInstrumentDayOffGrpcModel{
@@ -50,8 +50,8 @@ message TradingInstrumentDayOffGrpcModel{
 }
 
 service TradingSettingsIntegrationGrpcService {
-    rpc GetTradingInstruments(google.protobuf.Empty) returns (stream trading_settings_integration.TradingInstrumentGrpcModel);
-    rpc GetTradingProfiles(google.protobuf.Empty) returns (stream trading_settings_integration.TradingProfileGrpcModel);
-    rpc GetTradingGroups(google.protobuf.Empty) returns (stream trading_settings_integration.TradingGroupGrpcModel);
+    rpc GetTradingInstruments(google.protobuf.Empty) returns (stream TradingInstrumentGrpcModel);
+    rpc GetTradingProfiles(google.protobuf.Empty) returns (stream TradingProfileGrpcModel);
+    rpc GetTradingGroups(google.protobuf.Empty) returns (stream TradingGroupGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }

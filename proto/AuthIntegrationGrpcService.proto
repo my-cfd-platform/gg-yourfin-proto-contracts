@@ -14,13 +14,13 @@ message GeneratePlatformRedirectUrlGrpcRequest{
 }
 
 message GeneratePlatformRedirectUrlGrpcResponse{
-  authentication_integration.OperationResult Result = 1;
+  OperationResult Result = 1;
   string RedirectUrl = 2;
 }
 
 
 service AuthenticationGrpcService {
-    rpc GeneratePlatformRedirectUrl(authentication_integration.GeneratePlatformRedirectUrlGrpcRequest) returns (authentication_integration.GeneratePlatformRedirectUrlGrpcResponse);   
+    rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
 
