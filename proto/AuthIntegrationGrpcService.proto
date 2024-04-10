@@ -19,7 +19,7 @@ message GeneratePlatformRedirectUrlGrpcResponse{
 }
 
 
-service AuthenticationGrpcService {
+service AuthenticationIntegrationGrpcService {
     rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
