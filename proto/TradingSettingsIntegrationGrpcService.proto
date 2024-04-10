@@ -18,9 +18,9 @@ message TradingProfileGrpcModel{
 
 message TradingProfileInstrumentGrpcModel{
     string Id = 1;
-    uint64 MinOperationVolume = 2;
-    uint64 MaxOperationVolume = 3;
-    uint64 MaxPositionVolume = 4;
+    double MinOperationVolume = 2;
+    double MaxOperationVolume = 3;
+    double MaxPositionVolume = 4;
     uint64 OpenPositionMinDelayMs = 5;
     uint64 OpenPositionMaxDelayMs = 6;
     bool TpSlippage = 7;
