@@ -11,7 +11,7 @@ message TradingGroupGrpcModel{
 
 message TradingProfileGrpcModel{
     string Id = 1;
-    double MarginCallPercent = 2;
+    optional double MarginCallPercent = 2;
     double StopOutPercent = 3;
     repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 4;
 }
