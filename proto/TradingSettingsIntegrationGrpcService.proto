@@ -21,14 +21,11 @@ message TradingProfileInstrumentGrpcModel{
     double MinOperationVolume = 2;
     double MaxOperationVolume = 3;
     double MaxPositionVolume = 4;
-    uint64 OpenPositionMinDelayMs = 5;
-    uint64 OpenPositionMaxDelayMs = 6;
-    bool TpSlippage = 7;
-    bool SlSlippage = 8;
-    bool IsTrending = 9;
-    bool OpenPositionSlippage = 10;
-    repeated uint32 Leverages = 11;
-    double StopOutPercent = 12;
+    uint32 OpenPositionMinDelayMs = 5;
+    uint32 OpenPositionMaxDelayMs = 6;
+    repeated uint32 Leverages = 7;
+    optional double StopOutPercent = 8; 
+  
 }
 
 message TradingInstrumentGrpcModel{
