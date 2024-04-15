@@ -47,9 +47,10 @@ message SwapProfileGrpcModel{
 }
 
 message SwapProfileGrpcLine{
-    int32 DayOfTheWeek = 1;
-    string Time = 2;
-    int32 Amount = 3;
+    string InstrumentId =1;
+    int32 DayOfTheWeek = 2;
+    string Time = 3;
+    int32 Amount = 4;
 }
 
 message TradingInstrumentDayOffGrpcModel{
