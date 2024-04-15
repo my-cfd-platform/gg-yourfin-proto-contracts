@@ -105,10 +105,16 @@ message ClosedOrderGrpcModel{
     PositionCloseReason CloseReason = 25;
 }
 
+message ServerInfoModel{
+    string ServerTime = 1;
+    string EndOfTheDatTime = 2;
+}
+
 
 service TradingInfoIntegrationGrpc {
     rpc GetActiveOrders(GetClientInfoGrpcRequest) returns (stream ActiveOrderGrpcModel);
     rpc GetPendingOrders(GetClientInfoGrpcRequest) returns (stream PendingOrderGrpcModel);
     rpc GetHistoryPositions(GetClientInfoGrpcRequest) returns (stream ClosedOrderGrpcModel);
+    rpc GetServerInfo(google.protobuf.Empty) returns (ServerInfoModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
