@@ -60,7 +60,7 @@ message TradingInstrumentDayOffGrpcModel{
 }
 
 
-message ServerInfoModel{
+message ServerInfoGrpcModel{
     string ServerTime = 1;
 }
 
@@ -70,6 +70,6 @@ service TradingSettingsIntegrationGrpcService {
     rpc GetTradingGroups(google.protobuf.Empty) returns (stream TradingGroupGrpcModel);
     rpc GetTradingProfiles(google.protobuf.Empty) returns (stream TradingProfileGrpcModel);
     rpc GetSwapProfiles(google.protobuf.Empty) returns (stream SwapProfileGrpcModel);
-    rpc GetServerInfo(google.protobuf.Empty) returns (ServerInfoModel);
+    rpc GetServerInfo(google.protobuf.Empty) returns (ServerInfoGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
