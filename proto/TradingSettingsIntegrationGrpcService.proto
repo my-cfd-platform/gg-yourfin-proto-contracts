@@ -43,10 +43,10 @@ message TradingInstrumentGrpcModel{
 
 message SwapProfileGrpcModel{
     string Id = 1;
-    repeated SwapProfileLine Lines = 2;
+    repeated SwapProfileGrpcLine Lines = 2;
 }
 
-message SwapProfileLine{
+message SwapProfileGrpcLine{
     int32 DayOfTheWeek = 1;
     string Time = 2;
     int32 Amount = 3;
