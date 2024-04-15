@@ -43,14 +43,14 @@ message TradingInstrumentGrpcModel{
 
 message SwapProfileGrpcModel{
     string Id = 1;
-    repeated SwapProfileGrpcLine Lines = 2;
+    repeated SwapProfileInstrumentGrpcModel Instruments = 2;
 }
 
-message SwapProfileGrpcLine{
+message SwapProfileInstrumentGrpcModel{
     string InstrumentId =1;
-    int32 DayOfTheWeek = 2;
-    string Time = 3;
-    int32 Amount = 4;
+    double Long = 2;
+    double Short = 3;
+  
 }
 
 message TradingInstrumentDayOffGrpcModel{
@@ -65,12 +65,25 @@ message ServerInfoGrpcModel{
     string ServerTime = 1;
 }
 
+message SwapScheduleGrpcModel{
+    string SwapProfileId = 1;
+    repeated SwapScheduleGrpcItem Items = 2;
+}
+
+message SwapScheduleGrpcItem{
+    int32 DayOfWeek = 1;
+    string Time = 2;
+    int32 Amount = 3;
+}
+
 
 service TradingSettingsIntegrationGrpcService {
     rpc GetTradingInstruments(google.protobuf.Empty) returns (stream TradingInstrumentGrpcModel);
     rpc GetTradingGroups(google.protobuf.Empty) returns (stream TradingGroupGrpcModel);
     rpc GetTradingProfiles(google.protobuf.Empty) returns (stream TradingProfileGrpcModel);
     rpc GetSwapProfiles(google.protobuf.Empty) returns (stream SwapProfileGrpcModel);
+    rpc GetSwapSchedule(google.protobuf.Empty) returns (stream SwapScheduleGrpcModel);
     rpc GetServerInfo(google.protobuf.Empty) returns (ServerInfoGrpcModel);
+    
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
