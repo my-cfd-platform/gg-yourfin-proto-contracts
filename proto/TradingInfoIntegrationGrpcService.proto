@@ -17,8 +17,18 @@ enum PositionCloseReason{
     ForceClose = 6;
 }
 
+message GetActiveOrdersGrpcRequest{
+    string TraderId = 1;
+    string AccountId = 2;
+}
 
-message GetClientInfoGrpcRequest{
+message GetPendingOrdersGrpcRequest{
+    string TraderId = 1;
+    string AccountId = 2;
+}
+
+
+message GetHistoryGrpcRequest{
     string TraderId = 1;
     string AccountId = 2;
     uint64 DateFromMicroSeconds = 3;
@@ -107,8 +117,8 @@ message ClosedOrderGrpcModel{
 
 
 service TradingInfoIntegrationGrpc {
-    rpc GetActiveOrders(GetClientInfoGrpcRequest) returns (stream ActiveOrderGrpcModel);
-    rpc GetPendingOrders(GetClientInfoGrpcRequest) returns (stream PendingOrderGrpcModel);
-    rpc GetHistoryPositions(GetClientInfoGrpcRequest) returns (stream ClosedOrderGrpcModel);
+    rpc GetActiveOrders(GetActiveOrdersGrpcRequest) returns (stream ActiveOrderGrpcModel);
+    rpc GetPendingOrders(GetPendingOrdersGrpcRequest) returns (stream PendingOrderGrpcModel);
+    rpc GetHistoryPositions(GetHistoryGrpcRequest) returns (stream ClosedOrderGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
