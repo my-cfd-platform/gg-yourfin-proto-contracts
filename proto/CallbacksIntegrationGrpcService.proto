@@ -5,6 +5,12 @@ import "google/protobuf/empty.proto";
 
 message GetChangeGrpcRequest{
     string ApiKey = 1;
+    string ConfirmationId = 2;
+}
+
+message GetBidAskGrpcResponse{
+    string ConfirmationId= 1;
+    repeated BidAskGrpcModel BidAsks = 2;
 }
 
 message BidAskGrpcModel{
@@ -12,7 +18,6 @@ message BidAskGrpcModel{
     int64 DateTime = 2;
     double Bid = 3;
     double Ask = 4;
-
 }
 
 enum ChangeTypeGrpcModel{
@@ -28,8 +33,13 @@ message ChangeGrpcModel{
 }
 
 
+message GetChangesResponse{
+    string ConfirmationId= 1;
+    repeated ChangeGrpcModel Changes = 2;
+}
+
 service CallbacksIntegrationGrpc {
-    rpc GetBidAsk(GetChangeGrpcRequest) returns (stream BidAskGrpcModel);
-    rpc GetChanges(GetChangeGrpcRequest) returns (stream ChangeGrpcModel);
+    rpc GetBidAsk(GetChangeGrpcRequest) returns (GetBidAskGrpcResponse);
+    rpc GetChanges(GetChangeGrpcRequest) returns (GetChangesResponse);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
