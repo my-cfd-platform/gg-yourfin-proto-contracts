@@ -3,7 +3,7 @@ package callbacks_integration;
 import "google/protobuf/empty.proto";
 
 
-message GetPricesGrpcRequest{
+message GetChangeGrpcRequest{
     string ApiKey = 1;
 }
 
@@ -15,7 +15,19 @@ message BidAskGrpcModel{
 
 }
 
+message ChangeGrpcModel{
+    string TraderId = 1;
+    string AccountId = 2;
+    string Id =3;
+}
+
+message ChangesGrpcResponse{
+    repeated ChangeGrpcModel CreatedPositions = 1;
+    repeated ChangeGrpcModel ClosedPositions = 2;
+}
+
 service CallbacksIntegrationGrpc {
-    rpc GetBidAsk(GetPricesGrpcRequest) returns(stream BidAskGrpcModel);
+    rpc GetBidAsk(GetChangeGrpcRequest) returns (stream BidAskGrpcModel);
+    rpc GetChanges(GetChangeGrpcRequest) returns (ChangesGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
