@@ -7,7 +7,7 @@ message GetPricesGrpcRequest{
     string ApiKey = 1;
 }
 
-message PriceGrpcModel{
+message BidAskGrpcModel{
     string Instrument = 1;
     int64 DateTime = 2;
     double Bid = 3;
@@ -16,6 +16,6 @@ message PriceGrpcModel{
 }
 
 service CallbacksIntegrationGrpc {
-    rpc GetPrices(GetPricesGrpcRequest) returns(stream PriceGrpcModel);
+    rpc GetBidAsk(GetPricesGrpcRequest) returns(stream BidAskGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
