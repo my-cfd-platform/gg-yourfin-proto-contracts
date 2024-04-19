@@ -15,19 +15,21 @@ message BidAskGrpcModel{
 
 }
 
-message ChangeGrpcModel{
-    string TraderId = 1;
-    string AccountId = 2;
-    string Id =3;
+enum ChangeTypeGrpcModel{
+    PositionCreated = 0;
+    PositionClosed = 1;
 }
 
-message ChangesGrpcResponse{
-    repeated ChangeGrpcModel CreatedPositions = 1;
-    repeated ChangeGrpcModel ClosedPositions = 2;
+message ChangeGrpcModel{
+    ChangeTypeGrpcModel ChangeType = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    string Id =4;
 }
+
 
 service CallbacksIntegrationGrpc {
     rpc GetBidAsk(GetChangeGrpcRequest) returns (stream BidAskGrpcModel);
-    rpc GetChanges(GetChangeGrpcRequest) returns (ChangesGrpcResponse);
+    rpc GetChanges(GetChangeGrpcRequest) returns (stream ChangeGrpcModel);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
