@@ -77,13 +77,17 @@ message SwapScheduleGrpcItem{
 }
 
 
+message GetDataGrpcRequest{
+    string ApiKey = 1;
+}
+
 service TradingSettingsIntegrationGrpcService {
-    rpc GetTradingInstruments(google.protobuf.Empty) returns (stream TradingInstrumentGrpcModel);
-    rpc GetTradingGroups(google.protobuf.Empty) returns (stream TradingGroupGrpcModel);
-    rpc GetTradingProfiles(google.protobuf.Empty) returns (stream TradingProfileGrpcModel);
-    rpc GetSwapProfiles(google.protobuf.Empty) returns (stream SwapProfileGrpcModel);
-    rpc GetSwapSchedule(google.protobuf.Empty) returns (stream SwapScheduleGrpcModel);
-    rpc GetServerInfo(google.protobuf.Empty) returns (ServerInfoGrpcModel);
+    rpc GetTradingInstruments(GetDataGrpcRequest) returns (stream TradingInstrumentGrpcModel);
+    rpc GetTradingGroups(GetDataGrpcRequest) returns (stream TradingGroupGrpcModel);
+    rpc GetTradingProfiles(GetDataGrpcRequest) returns (stream TradingProfileGrpcModel);
+    rpc GetSwapProfiles(GetDataGrpcRequest) returns (stream SwapProfileGrpcModel);
+    rpc GetSwapSchedule(GetDataGrpcRequest) returns (stream SwapScheduleGrpcModel);
+    rpc GetServerInfo(GetDataGrpcRequest) returns (ServerInfoGrpcModel);
     
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }

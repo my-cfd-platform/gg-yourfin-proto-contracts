@@ -9,8 +9,9 @@ enum OperationResult{
 }
 
 message GeneratePlatformRedirectUrlGrpcRequest{
-  string TraderId = 1;
-  optional string AccountId = 2;
+  string ApiKey = 1;
+  string TraderId = 2;
+  optional string AccountId = 3;
 }
 
 message GeneratePlatformRedirectUrlGrpcResponse{

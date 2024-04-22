@@ -22,10 +22,11 @@ message TransactionGrpcModel{
 }
 
 message GetTransactionHistoryGrpc{
-    string TraderId = 1;
-    string AccountId = 2;
-    uint64 DateFromUnixMicros = 3;
-    uint64 DateToUnixMicros = 4;
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    uint64 DateFromUnixMicros = 4;
+    uint64 DateToUnixMicros = 5;
 }
 
 service TransactionHistoryIntegrationGrpcService {

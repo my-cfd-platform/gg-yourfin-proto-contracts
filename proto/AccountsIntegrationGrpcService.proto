@@ -30,14 +30,15 @@ message AccountsIntegrationClientAccountGrpcModel{
 }
 
 message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
-    string TraderId = 1;
-    string AccountId = 2;
-    double Delta = 3;
-    string Comment = 4;
-    string ProcessId = 5;
-    bool AllowNegativeBalance = 6;
-    AccountsIntegrationUpdateAccountBalanceReason Reason = 7;
-    optional string ReferenceTransactionId = 8;
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    double Delta = 4;
+    string Comment = 5;
+    string ProcessId = 6;
+    bool AllowNegativeBalance = 7;
+    AccountsIntegrationUpdateAccountBalanceReason Reason = 8;
+    optional string ReferenceTransactionId = 9;
 }
 
 message AccountsIntegrationAccountGrpcResponse{
@@ -56,21 +57,24 @@ message AccountsIntegrationAccountBalanceUpdateInfoGrpc{
 }
 
 message AccountsIntegrationCreateClientAccountGrpcRequest{
-    string TraderId = 1;
-    string Currency = 2;
-    string ProcessId = 3;
-    optional string TradingGroupId = 4;
+    string ApiKey = 1;
+    string TraderId = 2;
+    string Currency = 3;
+    string ProcessId = 4;
+    optional string TradingGroupId = 5;
 }
 
 message AccountsIntegrationGetClientAccountsGrpcRequest{
-    string TraderId = 1;
+    string ApiKey = 1;
+    string TraderId = 2;
 }
 
 message AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest{
-    string TraderId = 1;
-    string AccountId = 2;
-    bool TradingDisabled = 3;
-    string ProcessId = 4;
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    bool TradingDisabled = 4;
+    string ProcessId = 5;
 }
 
 service AccountsIntegrationGrpcService {
