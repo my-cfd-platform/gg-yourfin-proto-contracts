@@ -25,6 +25,7 @@ message CreateOrUpdateTraderCredentialsRequest{
   string TraderId = 2;
   string Email = 3;
   string Password = 4;  
+  string ProcessId = 5;
 }
 
 message CreateOrUpdateTraderCredentialsResponse{
