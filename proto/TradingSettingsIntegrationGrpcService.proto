@@ -53,7 +53,7 @@ message SwapProfileInstrumentGrpcModel{
 }
 
 message TradingInstrumentDayOffGrpcModel{
-    uint32 DayFrom = 1;
+    uint32 DayFrom = 1; 
     string TimeFrom = 2;
     uint32 DayTo = 3;
     string TimeTo = 4;

@@ -61,7 +61,7 @@ message AccountsIntegrationCreateClientAccountGrpcRequest{
     string TraderId = 2;
     string Currency = 3;
     string ProcessId = 4;
-    optional string TradingGroupId = 5;
+    string TradingGroupId = 5;
 }
 
 message AccountsIntegrationGetClientAccountsGrpcRequest{
@@ -74,10 +74,12 @@ message AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest{
     string TraderId = 2;
     string AccountId = 3;
     bool TradingDisabled = 4;
-    string ProcessId = 5;
 }
 
-service AccountsIntegrationGrpcService {
+
+
+
+service AccountsIntegrationGrpcService {    
     rpc CreateClientAccount(AccountsIntegrationCreateClientAccountGrpcRequest) returns (AccountsIntegrationAccountGrpcResponse);
     rpc UpdateClientAccountBalance(AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (AccountsIntegrationAccountUpdateBalanceGrpcResponse);
     rpc GetClientAccounts(AccountsIntegrationGetClientAccountsGrpcRequest) returns (stream AccountsIntegrationClientAccountGrpcModel);

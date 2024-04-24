@@ -6,6 +6,7 @@ enum OperationResult{
     Ok = 0;
     AccountNotFound = 1;
     TraderNotFound = 2;
+    UserNameMustBeEmail = 7;
 }
 
 message GeneratePlatformRedirectUrlGrpcRequest{
@@ -19,9 +20,21 @@ message GeneratePlatformRedirectUrlGrpcResponse{
   string RedirectUrl = 2;
 }
 
+message CreateOrUpdateTraderCredentialsRequest{
+  string ApiKey = 1;
+  string TraderId = 2;
+  string Email = 3;
+  string Password = 4;  
+}
+
+message CreateOrUpdateTraderCredentialsResponse{
+  OperationResult Result = 1;
+}
+
 
 service AuthenticationIntegrationGrpcService {
-    rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
-    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
+  rpc CreateOrUpdateTraderCredentials(CreateOrUpdateTraderCredentialsRequest) returns (CreateOrUpdateTraderCredentialsResponse);
+  rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
+  rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
 
