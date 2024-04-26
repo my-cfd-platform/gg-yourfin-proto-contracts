@@ -6,7 +6,8 @@ enum OperationResult{
     Ok = 0;
     AccountNotFound = 1;
     TraderNotFound = 2;
-    UserNameMustBeEmail = 7;
+    UserNameMustBeEmail = 3;
+    UserWithTheSameEmailExists = 4;
 }
 
 message GeneratePlatformRedirectUrlGrpcRequest{
