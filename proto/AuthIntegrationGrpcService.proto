@@ -22,7 +22,7 @@ message GeneratePlatformRedirectUrlGrpcResponse{
   string RedirectUrl = 2;
 }
 
-message CreateOrUpdateTraderCredentialsRequest{
+message CreateTraderCredentialsRequest{
   string ApiKey = 1;
   string TraderId = 2;
   string Email = 3;
@@ -30,7 +30,7 @@ message CreateOrUpdateTraderCredentialsRequest{
   string ProcessId = 5;
 }
 
-message CreateOrUpdateTraderCredentialsResponse{
+message CreateTraderCredentialsResponse{
   OperationResult Result = 1;
 }
 
@@ -46,7 +46,7 @@ message UpdateTraderPasswordResponse{
 }
 
 service AuthenticationIntegrationGrpcService {
-  rpc CreateTraderCredentials(CreateOrUpdateTraderCredentialsRequest) returns (CreateOrUpdateTraderCredentialsResponse);
+  rpc CreateTraderCredentials(CreateTraderCredentialsRequest) returns (CreateTraderCredentialsResponse);
   rpc UpdateTraderPassword(UpdateTraderPasswordRequest) returns (UpdateTraderPasswordResponse);
   rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
   rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
