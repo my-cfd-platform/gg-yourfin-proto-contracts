@@ -34,8 +34,19 @@ message CreateOrUpdateTraderCredentialsResponse{
 }
 
 
+message UpdateTraderPasswordRequest{
+  string ApiKey = 1;
+  string TraderId = 2;
+  string NewPassword = 3;
+}
+
+message UpdateTraderPasswordResponse{
+  OperationResult Result = 1;
+}
+
 service AuthenticationIntegrationGrpcService {
-  rpc CreateOrUpdateTraderCredentials(CreateOrUpdateTraderCredentialsRequest) returns (CreateOrUpdateTraderCredentialsResponse);
+  rpc CreateTraderCredentials(CreateOrUpdateTraderCredentialsRequest) returns (CreateOrUpdateTraderCredentialsResponse);
+  rpc UpdateTraderPassword(UpdateTraderPasswordRequest) returns (UpdateTraderPasswordResponse);
   rpc GeneratePlatformRedirectUrl(GeneratePlatformRedirectUrlGrpcRequest) returns (GeneratePlatformRedirectUrlGrpcResponse);   
   rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
