@@ -4,10 +4,11 @@ import "google/protobuf/empty.proto";
 
 enum OperationResult{
     Ok = 0;
-    AccountNotFound = 1;
-    TraderNotFound = 2;
-    UserNameMustBeEmail = 3;
-    UserWithTheSameEmailExists = 4;
+    InvalidApiKey = 1;
+    AccountNotFound = 2;
+    TraderNotFound = 3;
+    UserNameMustBeEmail = 4;
+    UserWithTheSameEmailExists = 5;
 }
 
 message GeneratePlatformRedirectUrlGrpcRequest{
