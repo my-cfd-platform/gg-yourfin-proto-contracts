@@ -122,6 +122,7 @@ message ClosedOrderGrpcModel{
 enum TradingInfoGrpcStatus{
     Ok=0;
     PositionOrOrderNotFound = 1;
+    Other = 3;
 }
 
 
