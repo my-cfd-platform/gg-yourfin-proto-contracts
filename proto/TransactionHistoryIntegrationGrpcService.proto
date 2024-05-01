@@ -30,9 +30,10 @@ message GetTransactionHistoryGrpc{
 }
 
 message GetTransactionHistoryEventRequest{
-    string TraderId = 1;
-    string AccountId = 2;
-    string Id = 3;
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    string Id = 4;
 }
 
 message GetTransactionHistoryEventResponse{
