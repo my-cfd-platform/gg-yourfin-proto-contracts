@@ -130,8 +130,9 @@ message CloseActiveOrderRequest{
     string ApiKey = 1;
     string TraderId = 2;
     string AccountId = 3;
-    string OrderId = 4;
-    PositionCloseReason CloseReason = 5;
+    string Id = 4;
+    string ProcessId = 5;
+    PositionCloseReason CloseReason = 6;
 }
 
 message CloseActiveOrderResponse{
@@ -143,6 +144,8 @@ message CancelPendingOrderRequest{
     string ApiKey = 1;
     string TraderId = 2;
     string AccountId = 3;
+    string Id = 4;
+    string ProcessId = 5;
 }
 
 message CancelPendingOrderResponse{
