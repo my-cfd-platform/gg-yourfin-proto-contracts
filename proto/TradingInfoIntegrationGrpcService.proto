@@ -136,7 +136,8 @@ message CloseActiveOrderRequest{
 }
 
 message CloseActiveOrderResponse{
-    TradingInfoGrpcStatus Status = 1;    
+    TradingInfoGrpcStatus Status = 1;  
+    optional string ErrorMessage = 2;  
 }
 
 
@@ -149,7 +150,8 @@ message CancelPendingOrderRequest{
 }
 
 message CancelPendingOrderResponse{
-    TradingInfoGrpcStatus Status = 1;    
+    TradingInfoGrpcStatus Status = 1;   
+    optional string ErrorMessage = 2;   
 }
 
 
