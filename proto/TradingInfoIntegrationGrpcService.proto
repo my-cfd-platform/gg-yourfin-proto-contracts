@@ -157,7 +157,7 @@ service TradingInfoIntegrationGrpc {
 
 
     rpc CloseActiveOrder(CloseActiveOrderRequest) returns (CloseActiveOrderResponse);
-    rpc CancelPendingOrder(CloseActiveOrderRequest) returns (CancelPendingOrderResponse);
+    rpc CancelPendingOrder(CancelPendingOrderRequest) returns (CancelPendingOrderResponse);
 
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
