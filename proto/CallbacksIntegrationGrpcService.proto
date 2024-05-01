@@ -23,6 +23,8 @@ message BidAskGrpcModel{
 enum ChangeTypeGrpcModel{
     PositionCreated = 0;
     PositionClosed = 1;
+    Deposit = 2;
+    Withdraw = 3;
 }
 
 message ChangeGrpcModel{
