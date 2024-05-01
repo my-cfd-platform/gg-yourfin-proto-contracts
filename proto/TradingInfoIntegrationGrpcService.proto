@@ -119,9 +119,45 @@ message ClosedOrderGrpcModel{
 }
 
 
+enum TradingInfoGrpcStatus{
+    Ok=0;
+    AccountNotFound = 1;
+    OrderNotFound = 2;
+}
+
+
+message CloseActiveOrderRequest{
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+    string OrderId = 4;
+    PositionCloseReason CloseReason = 5;
+}
+
+message CloseActiveOrderResponse{
+    TradingInfoGrpcStatus Status = 1;    
+}
+
+
+message CancelPendingOrderRequest{
+    string ApiKey = 1;
+    string TraderId = 2;
+    string AccountId = 3;
+}
+
+message CancelPendingOrderResponse{
+    TradingInfoGrpcStatus Status = 1;    
+}
+
+
 service TradingInfoIntegrationGrpc {
     rpc GetActiveOrders(GetActiveOrdersGrpcRequest) returns (stream ActiveOrderGrpcModel);
     rpc GetPendingOrders(GetPendingOrdersGrpcRequest) returns (stream PendingOrderGrpcModel);
     rpc GetHistoryPositions(GetHistoryGrpcRequest) returns (stream ClosedOrderGrpcModel);
+
+
+    rpc CloseActiveOrder(CloseActiveOrderRequest) returns (CloseActiveOrderResponse);
+    rpc CancelPendingOrder(CloseActiveOrderRequest) returns (CancelPendingOrderResponse);
+
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
