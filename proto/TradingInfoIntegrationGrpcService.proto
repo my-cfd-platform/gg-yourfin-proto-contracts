@@ -147,7 +147,6 @@ message CancelPendingOrderRequest{
     string TraderId = 2;
     string AccountId = 3;
     string Id = 4;
-    string ProcessId = 5;
 }
 
 message CancelPendingOrderResponse{
