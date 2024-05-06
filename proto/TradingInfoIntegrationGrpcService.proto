@@ -155,6 +155,10 @@ message CancelPendingOrderResponse{
 }
 
 
+message GetBidAskSnapshotRequest{
+    string ApiKey = 1;
+}
+
 service TradingInfoIntegrationGrpc {
     rpc GetActiveOrders(GetActiveOrdersGrpcRequest) returns (stream ActiveOrderGrpcModel);
     rpc GetPendingOrders(GetPendingOrdersGrpcRequest) returns (stream PendingOrderGrpcModel);
@@ -163,6 +167,8 @@ service TradingInfoIntegrationGrpc {
 
     rpc CloseActiveOrder(CloseActiveOrderRequest) returns (CloseActiveOrderResponse);
     rpc CancelPendingOrder(CancelPendingOrderRequest) returns (CancelPendingOrderResponse);
+
+    rpc GetBidAskSnapshot(GetBidAskSnapshotRequest) returns (stream TradingInfoBidAskModel);
 
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
 }
