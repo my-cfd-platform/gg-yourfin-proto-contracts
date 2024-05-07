@@ -157,6 +157,7 @@ message CancelPendingOrderResponse{
 
 message GetBidAskSnapshotRequest{
     string ApiKey = 1;
+    optional string InstrumentId = 2;
 }
 
 message BidAskGrpcModel{
