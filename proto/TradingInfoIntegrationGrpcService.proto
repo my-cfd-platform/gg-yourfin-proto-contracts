@@ -167,14 +167,14 @@ message BidAskGrpcModel{
     double Ask = 4;
 }
 
-message GetActiveOrderRequest{
+message GetActiveOrderGrpcRequest{
     string ApiKey = 1;
     string TraderId = 2;
     string AccountId = 3;
     string Id = 4;
 }
 
-message GetActiveOrderResponse{
+message GetActiveOrderGrpcResponse{
     optional ActiveOrderGrpcModel Order = 1;
 }
 
@@ -183,7 +183,7 @@ service TradingInfoIntegrationGrpc {
     rpc GetPendingOrders(GetPendingOrdersGrpcRequest) returns (stream PendingOrderGrpcModel);
     rpc GetHistoryPositions(GetHistoryGrpcRequest) returns (stream ClosedOrderGrpcModel);
 
-    rpc GetActiveOrder(GetActiveOrderRequest) returns (GetActiveOrderResponse);
+    rpc GetActiveOrder(GetActiveOrderGrpcRequest) returns (GetActiveOrderGrpcResponse);
 
     rpc CloseActiveOrder(CloseActiveOrderRequest) returns (CloseActiveOrderResponse);
 
