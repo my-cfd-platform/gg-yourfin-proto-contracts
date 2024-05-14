@@ -62,6 +62,7 @@ message AccountsIntegrationCreateClientAccountGrpcRequest{
     string Currency = 3;
     string ProcessId = 4;
     string TradingGroupId = 5;
+    string Leverage = 6;
 }
 
 message AccountsIntegrationGetClientAccountsGrpcRequest{
@@ -79,7 +80,7 @@ message AccountsIntegrationUpdateAccountTradingDisabledGrpcRequest{
 
 
 
-service AccountsIntegrationGrpcService {    
+service CrossMarginAccountsIntegrationGrpcService {    
     rpc CreateClientAccount(AccountsIntegrationCreateClientAccountGrpcRequest) returns (AccountsIntegrationAccountGrpcResponse);
     rpc UpdateClientAccountBalance(AccountsIntegrationUpdateAccountBalanceGrpcRequest) returns (AccountsIntegrationAccountUpdateBalanceGrpcResponse);
     rpc GetClientAccounts(AccountsIntegrationGetClientAccountsGrpcRequest) returns (stream AccountsIntegrationClientAccountGrpcModel);
