@@ -47,13 +47,13 @@ message AccountsIntegrationAccountGrpcResponse{
 }
 
 message AccountsIntegrationAccountUpdateBalanceGrpcResponse{
-    accounts_integration.AccountsIntegrationOperationResult Result = 1;
-    accounts_integration.AccountsIntegrationAccountBalanceUpdateInfoGrpc UpdateBalanceInfo = 2;
+    AccountsIntegrationOperationResult Result = 1;
+    AccountsIntegrationAccountBalanceUpdateInfoGrpc UpdateBalanceInfo = 2;
 }
 
 message AccountsIntegrationAccountBalanceUpdateInfoGrpc{
     string OperationId = 1;
-    accounts_integration.AccountsIntegrationClientAccountGrpcModel Account = 2;
+    AccountsIntegrationClientAccountGrpcModel Account = 2;
 }
 
 message AccountsIntegrationCreateClientAccountGrpcRequest{
