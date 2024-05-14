@@ -84,8 +84,7 @@ message PendingOrderGrpcModel{
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
     double Profit = 15;
-    double SoPercent = 16;
-    optional double DesirePrice = 17;
+    optional double DesirePrice = 16;
 }
 
 message ClosedOrderGrpcModel{
