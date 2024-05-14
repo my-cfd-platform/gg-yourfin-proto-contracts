@@ -86,8 +86,7 @@ message PendingOrderGrpcModel{
     string CreateProcessId = 14;
     double Volume = 15;
     double Profit = 16;
-    double SoPercent = 17;
-    optional double DesirePrice = 18;
+    optional double DesirePrice = 17;
 }
 
 message ClosedOrderGrpcModel{
