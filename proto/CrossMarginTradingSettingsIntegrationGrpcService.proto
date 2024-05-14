@@ -8,6 +8,7 @@ message TradingGroupGrpcModel{
     string TradingProfileId = 3;
     string SwapProfileId = 4;
     bool TradingDisabled = 5;
+
     
 }
 
@@ -15,7 +16,8 @@ message TradingProfileGrpcModel{
     string Id = 1;
     optional double MarginCallPercent = 2;
     double StopOutPercent = 3;
-    repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 4;
+    repeated int32 Leverages = 4;
+    repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 5;
 }
 
 message TradingProfileInstrumentGrpcModel{
@@ -25,7 +27,7 @@ message TradingProfileInstrumentGrpcModel{
     double MaxPositionVolume = 4;
     uint32 OpenPositionMinDelayMs = 5;
     uint32 OpenPositionMaxDelayMs = 6;
-    repeated uint32 Leverages = 7;
+    optional uint32 MaxLeverage = 7;
     optional double StopOutPercent = 8; 
   
 }
@@ -37,7 +39,8 @@ message TradingInstrumentGrpcModel{
     string Base = 4;
     string Quote = 5;
     bool TradingDisabled = 6;
-    repeated TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 7;
+    double LotSize = 7;
+    repeated TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 8;
 }
 
 message SwapProfileGrpcModel{
