@@ -1,5 +1,5 @@
 syntax = "proto3";
-package accounts_integration;
+package cross_margin_accounts_integration;
 import "google/protobuf/empty.proto";
 
 enum AccountsIntegrationOperationResult{
