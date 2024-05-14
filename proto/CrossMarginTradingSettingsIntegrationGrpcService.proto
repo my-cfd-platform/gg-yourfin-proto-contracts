@@ -1,0 +1,92 @@
+syntax = "proto3";
+package cross_margin_trading_settings_integration;
+import "google/protobuf/empty.proto";
+
+message TradingGroupGrpcModel{
+    string Id = 1;
+    string Name = 2;
+    string TradingProfileId = 3;
+    string SwapProfileId = 4;
+    bool TradingDisabled = 5;
+    
+}
+
+message TradingProfileGrpcModel{
+    string Id = 1;
+    optional double MarginCallPercent = 2;
+    double StopOutPercent = 3;
+    repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 4;
+}
+
+message TradingProfileInstrumentGrpcModel{
+    string Id = 1;
+    double MinOperationVolume = 2;
+    double MaxOperationVolume = 3;
+    double MaxPositionVolume = 4;
+    uint32 OpenPositionMinDelayMs = 5;
+    uint32 OpenPositionMaxDelayMs = 6;
+    repeated uint32 Leverages = 7;
+    optional double StopOutPercent = 8; 
+  
+}
+
+message TradingInstrumentGrpcModel{
+    string Id = 1;
+    string Name = 2;
+    uint32 Digits = 3;
+    string Base = 4;
+    string Quote = 5;
+    bool TradingDisabled = 6;
+    repeated TradingInstrumentDayOffGrpcModel TradingInstrumentDayOffs = 7;
+}
+
+message SwapProfileGrpcModel{
+    string Id = 1;
+    repeated SwapProfileInstrumentGrpcModel Instruments = 2;
+}
+
+message SwapProfileInstrumentGrpcModel{
+    string InstrumentId =1;
+    double Long = 2;
+    double Short = 3;
+  
+}
+
+message TradingInstrumentDayOffGrpcModel{
+    uint32 DayFrom = 1; 
+    string TimeFrom = 2;
+    uint32 DayTo = 3;
+    string TimeTo = 4;
+}
+
+
+message ServerInfoGrpcModel{
+    string ServerTime = 1;
+}
+
+message SwapScheduleGrpcModel{
+    string SwapProfileId = 1;
+    repeated SwapScheduleGrpcItem Items = 2;
+}
+
+message SwapScheduleGrpcItem{
+    int32 DayOfWeek = 1;
+    string Time = 2;
+    int32 Amount = 3;
+}
+
+
+message GetDataGrpcRequest{
+    string ApiKey = 1;
+}
+
+service CrossMarginTradingSettingsIntegrationGrpcService {
+    rpc GetTradingInstruments(GetDataGrpcRequest) returns (stream TradingInstrumentGrpcModel);
+    rpc GetTradingGroups(GetDataGrpcRequest) returns (stream TradingGroupGrpcModel);
+    rpc GetTradingProfiles(GetDataGrpcRequest) returns (stream TradingProfileGrpcModel);
+    rpc GetSwapProfiles(GetDataGrpcRequest) returns (stream SwapProfileGrpcModel);
+    rpc GetSwapSchedule(GetDataGrpcRequest) returns (stream SwapScheduleGrpcModel);
+    rpc GetServerInfo(GetDataGrpcRequest) returns (ServerInfoGrpcModel);
+    
+    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
+}
