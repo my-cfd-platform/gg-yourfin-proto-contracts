@@ -12,7 +12,7 @@ enum AccountsIntegrationOperationResult{
     InvalidAccountCurrency = 6;
 }
 
-enum UpdateAccountBalanceReason{
+enum AccountsIntegrationUpdateAccountBalanceReason{
     BalanceCorrection = 0;
     Deposit = 1;
     Withdrawal = 2;
@@ -41,7 +41,7 @@ message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
     string Comment = 5;
     string ProcessId = 6;
     bool AllowNegativeBalance = 7;
-    UpdateAccountBalanceReason Reason = 8;
+    AccountsIntegrationUpdateAccountBalanceReason Reason = 8;
     optional string ReferenceTransactionId = 9;
 }
 
