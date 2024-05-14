@@ -16,7 +16,7 @@ message TradingProfileGrpcModel{
     string Id = 1;
     optional double MarginCallPercent = 2;
     double StopOutPercent = 3;
-    repeated int32 Leverages = 4;
+    repeated uint32 Leverages = 4;
     repeated TradingProfileInstrumentGrpcModel TradingProfileInstruments = 5;
 }
 
