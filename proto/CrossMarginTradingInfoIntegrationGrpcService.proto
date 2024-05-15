@@ -51,7 +51,7 @@ message ActiveOrderGrpcModel{
     string AccountId = 3;
     string InstrumentId = 4;
     double Lots = 5;
-    int32 Leverage = 6;
+    double Leverage = 6;
     uint64 CreateDate = 7;
     PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
@@ -61,11 +61,10 @@ message ActiveOrderGrpcModel{
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
     double Profit = 15;
-    double SoPercent = 16;
-    optional double DesirePrice = 17;
-    double OpenPrice = 18;
-    TradingInfoBidAskModel OpenBidAsk = 19;
-    uint64 OpenDate = 20;
+    optional double DesirePrice = 16;
+    double OpenPrice = 17;
+    TradingInfoBidAskModel OpenBidAsk = 18;
+    uint64 OpenDate = 19;
 }
 
 message PendingOrderGrpcModel{
@@ -74,7 +73,7 @@ message PendingOrderGrpcModel{
     string AccountId = 3;
     string InstrumentId = 4;
     double Lots = 5;
-    int32 Leverage = 6;
+    double Leverage = 6;
     uint64 CreateDate = 7;
     PositionSide PositionSide = 8;
     optional double TpInPositionPl = 9;
@@ -103,15 +102,14 @@ message ClosedOrderGrpcModel{
     uint64 LastUpdateDate = 13;
     string CreateProcessId = 14;
     double Profit = 15;
-    double SoPercent = 16;
-    optional double DesirePrice = 17;
-    double OpenPrice = 18;
-    TradingInfoBidAskModel OpenBidAsk = 19;
-    uint64 OpenDate = 20;
-    TradingInfoBidAskModel CloseBidAsk = 21;
-    double ClosePrice = 22;
-    uint64 CloseDate = 23;
-    PositionCloseReason CloseReason = 24;
+    optional double DesirePrice = 16;
+    double OpenPrice = 17;
+    TradingInfoBidAskModel OpenBidAsk = 18;
+    uint64 OpenDate = 19;
+    TradingInfoBidAskModel CloseBidAsk = 20;
+    double ClosePrice = 21;
+    uint64 CloseDate = 22;
+    PositionCloseReason CloseReason = 23;
 }
 
 
