@@ -8,13 +8,12 @@ enum PositionSide{
 }
 
 enum PositionCloseReason{
-    None = 0;
-    ClientCommand = 1;
-    StopOut = 2;
-    TakeProfit = 3;
-    StopLoss = 4;
-    Canceled = 5;
-    ForceClose = 6;
+    ClientCommand = 0;
+    StopOut = 1;
+    TakeProfit = 2;
+    StopLoss = 3;
+    Canceled = 4;
+    ForceClose = 5;
 }
 
 message GetActiveOrdersGrpcRequest{
