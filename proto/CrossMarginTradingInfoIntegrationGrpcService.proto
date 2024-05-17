@@ -12,6 +12,7 @@ enum PositionCloseReason{
     StopOut = 1;
     TakeProfit = 2;
     StopLoss = 3;
+    ForceClose = 4;
 }
 
 message GetActiveOrdersGrpcRequest{
