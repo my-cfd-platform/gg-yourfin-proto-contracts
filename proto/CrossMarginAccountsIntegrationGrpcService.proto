@@ -31,6 +31,10 @@ message AccountsIntegrationClientAccountGrpcModel{
     uint64 CreatedAt = 6;
     uint64 UpdatedAt = 7;
     bool TradingDisabled = 8;
+    double FreeMargin = 9;
+    double Equity = 10;
+    double Margin = 11;
+    double MarginLevel = 12;
 }
 
 message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
