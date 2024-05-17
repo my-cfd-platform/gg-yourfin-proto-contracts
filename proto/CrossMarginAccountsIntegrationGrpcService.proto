@@ -35,6 +35,7 @@ message AccountsIntegrationClientAccountGrpcModel{
     double Equity = 10;
     double Margin = 11;
     double MarginLevel = 12;
+    double Leverage = 13;
 }
 
 message AccountsIntegrationUpdateAccountBalanceGrpcRequest{
