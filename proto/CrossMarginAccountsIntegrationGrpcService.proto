@@ -66,6 +66,7 @@ message AccountsIntegrationCreateClientAccountGrpcRequest{
     string Currency = 3;
     string ProcessId = 4;
     string TradingGroupId = 5;
+    double Leverage = 6;
 }
 
 message AccountsIntegrationGetClientAccountsGrpcRequest{
