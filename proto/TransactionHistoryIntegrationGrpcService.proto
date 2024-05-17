@@ -8,7 +8,10 @@ enum TransactionType{
     BalanceCorrection = 2;
     Trading = 3;
     WithdrawalCancel = 4;
-    ToppingUp = 5;
+    Dividends = 5;
+    Bonus = 6;
+    Credit = 7;
+    Voucher = 8;
 }
 
 message TransactionGrpcModel{
