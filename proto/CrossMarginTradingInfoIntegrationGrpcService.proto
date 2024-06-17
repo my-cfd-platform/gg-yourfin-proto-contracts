@@ -62,6 +62,9 @@ message ActiveOrderGrpcModel{
     double OpenPrice = 16;
     TradingInfoBidAskModel OpenBidAsk = 17;
     uint64 OpenDate = 18;
+    double ContractSize = 19;
+    double MarginRate = 20;
+    double ProfitRate = 21;
 }
 
 message PendingOrderGrpcModel{
