@@ -24,6 +24,7 @@ enum ChangeTypeGrpcModel{
     PositionCreated = 0;
     PositionClosed = 1;
     BalanceUpdate = 2;
+    PositionUpdated = 3;
 }
 
 message ChangeGrpcModel{
