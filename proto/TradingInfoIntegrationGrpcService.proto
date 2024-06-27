@@ -67,6 +67,11 @@ message ActiveOrderGrpcModel{
     double OpenPrice = 19;
     TradingInfoBidAskModel OpenBidAsk = 20;
     uint64 OpenDate = 21;
+    string Base = 22;
+    string Quote = 23;
+    string CollateralCurrency = 24;
+    double BaseCollateralOpenPrice = 25;
+    
 }
 
 message PendingOrderGrpcModel{
