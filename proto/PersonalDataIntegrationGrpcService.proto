@@ -1,0 +1,32 @@
+
+syntax = "proto3";
+package pd_integration;
+import "google/protobuf/empty.proto";
+
+
+message PersonalDataIntegrationGrpcModel{
+    string Id = 1;
+    optional string Email = 2;
+    optional string FirstName = 3;
+    optional string LastName = 4;
+    optional string City = 5;
+    optional int64 DateOfBirth = 6;
+    optional string CountryOfResidence = 7;
+    optional string CountryOfCitizenship = 8;
+    optional string ZipCode = 9;
+    optional string Phone = 10;
+    optional string Address = 11;
+    optional SexGrpcModel Sex = 12;
+}
+
+enum SexGrpcModel{
+    Male =0;
+    Female=1;
+}
+
+
+
+service AuthenticationIntegrationGrpcService {
+    rpc UpdatePersonalData(PersonalDataIntegrationGrpcModel) returns (google.protobuf.Empty);
+    rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
+  }
