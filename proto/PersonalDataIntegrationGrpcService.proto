@@ -24,9 +24,14 @@ enum SexGrpcModel{
     Female=1;
 }
 
+message UpdatePersonalDataGrpcRequest{
+    string ApiKey = 1;
+    PersonalDataIntegrationGrpcModel PersonalData = 2;
+}
+
 
 
 service PersonalDataIntegrationGrpcService {
-    rpc UpdatePersonalData(PersonalDataIntegrationGrpcModel) returns (google.protobuf.Empty);
+    rpc UpdatePersonalData(UpdatePersonalDataGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns(google.protobuf.Empty);
   }
