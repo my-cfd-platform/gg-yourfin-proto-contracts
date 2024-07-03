@@ -8,10 +8,6 @@ enum TransactionType{
     Deposit = 2;
     Withdrawal = 3;
     WithdrawalCanceled = 4;
-    Dividends = 5;
-    Bonus = 6;
-    Credit = 7;
-    Voucher = 8;
 }
 
 message TransactionGrpcModel{
