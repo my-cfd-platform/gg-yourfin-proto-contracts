@@ -20,10 +20,6 @@ enum AccountsIntegrationUpdateAccountBalanceReason{
     Deposit = 1;
     Withdrawal = 2;
     WithdrawalCanceled = 3;
-    Dividends = 4;
-    Bonus = 5;
-    Credit = 6;
-    Voucher = 7;
 }
 
 message AccountsIntegrationClientAccountGrpcModel{
