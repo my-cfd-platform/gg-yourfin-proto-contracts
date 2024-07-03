@@ -3,11 +3,11 @@ package cross_margin_transaction_history_integration;
 import "google/protobuf/empty.proto";
 
 enum TransactionType{
-    Deposit = 0;
-    Withdrawal = 1;
-    BalanceCorrection = 2;
-    Trading = 3;
-    WithdrawalCancel = 4;
+    TradingResult = 0;
+    BalanceCorrection = 1;
+    Deposit = 2;
+    Withdrawal = 3;
+    WithdrawalCanceled = 4;
     Dividends = 5;
     Bonus = 6;
     Credit = 7;
