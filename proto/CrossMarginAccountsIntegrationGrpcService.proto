@@ -11,6 +11,8 @@ enum AccountsIntegrationOperationResult{
     InvalidTradingGroup = 5;
     InvalidCollateralCurrency = 6;
     InvalidLeverage = 7;
+    TradingGroupNotFound = 8;
+    TradingProfileNotFound = 9;
 }
 
 enum AccountsIntegrationUpdateAccountBalanceReason{
