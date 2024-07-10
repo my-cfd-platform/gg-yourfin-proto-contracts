@@ -65,6 +65,9 @@ message ActiveOrderGrpcModel{
     double ContractSize = 19;
     double MarginRate = 20;
     double ProfitRate = 21;
+    string CollateralCurrency = 22;
+    string Base = 23;
+    string Quote = 24;
 }
 
 message PendingOrderGrpcModel{
