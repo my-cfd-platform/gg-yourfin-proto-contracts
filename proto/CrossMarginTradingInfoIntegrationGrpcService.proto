@@ -86,6 +86,10 @@ message PendingOrderGrpcModel{
     string CreateProcessId = 13;
     double Profit = 14;
     optional double DesirePrice = 15;
+
+    string CollateralCurrency = 16;
+    string Base = 17;
+    string Quote = 18;
 }
 
 message ClosedOrderGrpcModel{
@@ -111,6 +115,10 @@ message ClosedOrderGrpcModel{
     double ClosePrice = 20;
     uint64 CloseDate = 21;
     PositionCloseReason CloseReason = 22;
+
+    string CollateralCurrency = 23;
+    string Base = 24;
+    string Quote = 25;
 }
 
 
