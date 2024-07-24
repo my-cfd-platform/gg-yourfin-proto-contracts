@@ -68,6 +68,8 @@ message ActiveOrderGrpcModel{
     string CollateralCurrency = 22;
     string Base = 23;
     string Quote = 24;
+    double Swaps = 25;
+    double Commissions = 26;
 }
 
 message PendingOrderGrpcModel{
@@ -119,6 +121,9 @@ message ClosedOrderGrpcModel{
     string CollateralCurrency = 23;
     string Base = 24;
     string Quote = 25;
+
+    double Swaps = 26;
+    double Commissions = 27;
 }
 
 
